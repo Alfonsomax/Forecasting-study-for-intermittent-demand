@@ -45,15 +45,17 @@ ANONYMIZE = True   # <-- Set to False to use the actual name of the part in the 
 for _, row in examples.iterrows():
     part_id = row["HOSTPARTID"]
     display_name = row["Label"] if ANONYMIZE else part_id
+    category_path = os.path.join(outputs_path, row["Classification"])
+    os.makedirs(category_path, exist_ok=True)
 
     print(f"Processing {part_id}...")
 
     table = evaluate_piece(part_id, df_month, df_quarter, df_year)
 
-    export_piece_table(table, part_id, outputs_path, display_name)
-    plot_metrics_bars(table, part_id, outputs_path, display_name)
+    export_piece_table(table, part_id, category_path, display_name)
+    plot_metrics_bars(table, part_id, category_path, display_name)
 
     for df, period_col in granularities:
-        plot_piece_series(part_id, df, period_col, METHODS, outputs_path, display_name)
+        plot_piece_series(part_id, df, period_col, METHODS, category_path, display_name)
 
 print("Process completed.")
