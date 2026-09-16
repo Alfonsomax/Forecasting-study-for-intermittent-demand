@@ -1,0 +1,16 @@
+# Datos y resultados (nunca subir)
+inputs/
+outputs/
+sqlite3/
+OLMO/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Editor / SO
+.vscode/
+.spyderproject
+.spyproject
