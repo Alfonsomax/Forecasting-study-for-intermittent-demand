@@ -29,7 +29,7 @@ if "db_reader" not in globals():
 
 
 raw_data_path = r"rute\data.xlsx"
-raw_data_sheet = "IPCSDD_DEMAND_DETAIL"
+raw_data_sheet = "SHEET_NAME"
 
 db_raw_data_path = os.path.join(main_path, "sqlite3","RAW_DATA.db")
 
